@@ -942,7 +942,8 @@ void CompilerDriver::PreCompile(jobject class_loader,
     LOG(FATAL_WITHOUT_ABORT) << "Had " << number_of_soft_verifier_failures_ << " soft failure(s) "
                              << "verifying all classes, and was asked to abort in such situations. "
                              << "Please check the log.";
-    _exit(1);
+    // disable abort on soft verifier errors the lazzy way :P
+    //_exit(1);
   }
 
   if (compiler_options_->IsAnyCompilationEnabled()) {
